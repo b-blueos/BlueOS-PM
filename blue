@@ -1,0 +1,45 @@
+#!/bin/bash
+
+while getopts ":a" opt; do
+  case $opt in
+    a)
+      echo "-a was triggered!" >&2
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      ;;
+  esac
+done
+
+if [ "$1" == "check" ]
+then
+echo "Installing..."
+elif [ "$1" == "upgrade" ]
+then
+echo
+elif [ "$1" == "local" ]
+then
+echo 
+elif [ "$1" == "install" ]
+then
+echo
+elif [ "$1" == "remove" ]
+then
+echo
+else
+echo "Invalid option!"
+fi
+
+
+echo "You need to use an option:"
+echo " "
+echo "  check    --> Check if there is a new update."; echo
+echo "  upgrade  --> Update the system."; echo
+echo "  local    --> Update the system using a local file."
+echo "                Usage: blue local FILE"; echo
+echo "  install  --> Install a package from the BlueOS repository. [! COMING SOON !]"
+echo "                Usage: blue install PACKAGE"; echo
+echo "  remove   --> Remove a package that comes from the BlueOS repository. [! COMING SOON !]"
+echo "                Usage: blue remove PACKAGE"; echo
+echo " "
+echo "Usage: blue [COMMAND]"
