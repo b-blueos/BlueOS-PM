@@ -1,8 +1,8 @@
 #!/bin/bash
 case $1 in
   -c | check )
-    ai_blue/pm/check.sh
-    echo "check.sh"
+    python ai_blue/pm/check.py
+    echo GG
     ;;
   -U | upgrade )
     ai_blue/pm/upgrade.sh
@@ -27,17 +27,16 @@ case $1 in
   * )
     echo -e "\e[31mInvalid option or initilized \`blue help\`!"
     echo
-    echo -e "\e[34mCommands:"
-    echo "  check    --> Check if there is a new update."
-    echo "  upgrade  --> Update the system, if there is an update."
-    echo "  local    --> Update the system using a local file."
-    echo "  [! COMING SOON !] install  --> Install a package from the BlueOS repository."
-    echo "  [! COMING SOON !] update   --> Update a package from the BlueOS repository.
-               (If no package is specified, all will be updated.)"
-    echo "  [! COMING SOON !] remove   --> Remove a package that comes from the BlueOS repository."
-    echo
-    echo -e "\e[32mUsage: blue [COMMAND] [OPTIONS]"
+    echo -e "\e[34mCommands:\e[32m"
+    echo "  check | -c    -->   Check if there is a new update.
+                      And will let you download the update if there is one."
+#    echo "  upgrade  --> Update the system, if there is an update."
+    echo "  local | -l    -->   Update the system using a local file."
+#    echo "  [! COMING SOON !] install  --> Install a package from the BlueOS repository."
+#    echo "  [! COMING SOON !] update   --> Update a package from the BlueOS repository.
+#               (If no package is specified, all will be updated.)"
+#    echo "  [! COMING SOON !] remove   --> Remove a package that comes from the BlueOS repository."
+#    echo
+#    echo -e "\e[32mUsage: blue [COMMAND] [OPTIONS]"
     ;;
 esac; shift;
-
-#echo "$1"
