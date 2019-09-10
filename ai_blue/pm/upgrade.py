@@ -15,13 +15,7 @@ def exists(path):
     return r.status_code == requests.codes.ok
 
 if exists(request) == True:
-    print("Exists! Do you wish to install it? [y/N]")
-    download_update = input()
-    if download_update == "y" or download_update == "Y":
-        print("Sure")
-        # Download update to ./ai_blue/update/
-        # From there carry on with local.sh?
-    else:
-        print("Okay, not upgrading!")
+    print("An update found!")
+    print("Downloading...")
 else:
     print("There's no updates! Have a great day!")

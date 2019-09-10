@@ -2,10 +2,9 @@
 case $1 in
   -c | check )
     python ai_blue/pm/check.py
-    echo GG
     ;;
   -U | upgrade )
-    ai_blue/pm/upgrade.sh
+    python ai_blue/pm/upgrade.py
     echo "upgrade.sh"
     ;;
   -l | local )
@@ -30,7 +29,7 @@ case $1 in
     echo -e "\e[34mCommands:\e[32m"
     echo "  check | -c    -->   Check if there is a new update.
                       And will let you download the update if there is one."
-#    echo "  upgrade  --> Update the system, if there is an update."
+    echo "  upgrade  --> Update the system, if there is an update."
     echo "  local | -l    -->   Update the system using a local file."
 #    echo "  [! COMING SOON !] install  --> Install a package from the BlueOS repository."
 #    echo "  [! COMING SOON !] update   --> Update a package from the BlueOS repository.
