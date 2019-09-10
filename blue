@@ -5,11 +5,9 @@ case $1 in
     ;;
   -U | upgrade )
     python ai_blue/pm/upgrade.py
-    echo "upgrade.sh"
     ;;
   -l | local )
-    ai_blue/pm/local.sh
-    echo "local.sh"
+    ai_blue/pm/local.sh $2
     ;;
   -i | install )
     ai_blue/pm/install.sh
