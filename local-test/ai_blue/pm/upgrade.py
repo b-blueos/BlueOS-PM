@@ -17,8 +17,8 @@ def exists(path):
 if exists(request) == True:
     print("Update exists!")
     print("Downloading... \n")
-    with open("/blue/update/update.tar.xz","wb") as update_file:
+    with open("ai_blue/update/update.tar.xz","wb") as update_file:
         update_file.write(requests.get("https://blueos.burnyllama.tk/repo/"+version_name+"/"+str(version_number)+"/update.tar.xz").content)
-    os.system("/blue/pm/upgrade.sh /blue/update/update.tar.xz")
+    os.system("ai_blue/pm/upgrade.sh ai_blue/update/update.tar.xz")
 else:
     print("There's no updates! Have a great day!")
