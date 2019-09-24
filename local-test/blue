@@ -10,7 +10,7 @@ case $1 in
     ai_blue/pm/local.sh $2
     ;;
   -b | backup )
-    ai_blue/pm/backup.sh $2
+    ai_blue/pm/backup.sh
     ;;
   -r | restore )
     ai_blue/pm/restore.sh
