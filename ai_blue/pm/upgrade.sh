@@ -10,7 +10,7 @@ echo
 echo "Starting the main update script..."
 bash /tmp/blue_update/index.sh
 echo "Creating new manifest..."
-cp -av /tmp/blue_update/manifest.py /blue/pm/manifest.py
+cp -av /tmp/blue_update/manifest.py ai_blue/pm/manifest.py
 echo "Cleaning up..."
-rm -rf /blue/update/* /tmp/blue_update/
+rm -rf ai_blue/update/* /tmp/blue_update/
 echo "Done! Have a nice day!"

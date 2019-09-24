@@ -1,24 +1,30 @@
 #!/bin/bash
 case $1 in
   -c | check )
-    python ai_blue/pm/check.py
+    python /blue/pm/check.py
     ;;
   -U | upgrade )
-    python ai_blue/pm/upgrade.py
+    python /blue/pm/upgrade.py
     ;;
   -l | local )
-    ai_blue/pm/local.sh $2
+    /blue/pm/local.sh $2
+    ;;
+  -b | backup )
+    /blue/pm/backup.sh $2
+    ;;
+  -r | restore )
+    /blue/pm/restore.sh
     ;;
 #  -i | install )
-#    ai_blue/pm/install.sh
+#    /blue/pm/install.sh
 #    echo "install.sh"
 #    ;;
 #  -u | update )
-#    ai_blue/pm/update.sh
+#    /blue/pm/update.sh
 #    echo "update.sh"
 #    ;;
-#  -r | remove )
-#    ai_blue/pm/remove.sh
+#  -R | remove )
+#    /blue/pm/remove.sh
 #    echo "remove.sh"
 #    ;;
   * )
@@ -29,11 +35,13 @@ case $1 in
     echo "                        And will let you download the update if there is one."
     echo "  upgrade | -U    -->   Update the system, if there is an update."
     echo "  local   | -l    -->   Update the system using a local file."
+    echo "  backup  | -b    -->   System backup. Takes one option: output_directory"
+    echo "  restore | -r    -->   Restore a backup. Takes one option: inout_file"
 #    echo "  [! COMING SOON !] install  --> Install a package from the BlueOS repository."
 #    echo "  [! COMING SOON !] update   --> Update a package from the BlueOS repository.
 #               (If no package is specified, all will be updated.)"
 #    echo "  [! COMING SOON !] remove   --> Remove a package that comes from the BlueOS repository."
-#    echo
-#    echo -e "\e[32mUsage: blue [COMMAND] [OPTIONS]"
+    echo
+    echo -e "\e[32mUsage: blue [COMMAND] (OPTIONS)"
     ;;
 esac; shift;

@@ -17,7 +17,7 @@ clear
 echo; echo "Continuing..."
 echo "You'll have to manually check the manifests."
 echo "Local manifest:"
-cat /blue/pm/manifest.py
+cat ai_blue/pm/manifest.py
 echo; echo "Update manifest:"
 cat /tmp/blue_update/manifest.py
 echo; echo "Make sure the \`version_name\` is the same, unless a there's a version name bump."
@@ -28,9 +28,9 @@ if [ "$MANIFEST_CHECK" == "y" ] || [ "$MANIFEST_CHECK" == "y" ] ; then
 echo "Starting the main update script..."
 bash /tmp/blue_update/index.sh
 echo "Creating new manifest..."
-cp -av /tmp/blue_update/manifest.py /blue/pm/manifest.py
+cp -av /tmp/blue_update/manifest.py ai_blue/pm/manifest.py
 echo "Cleaning up..."
-rm -rf /blue/update/* /tmp/blue_update/
+rm -rf ai_blue/update/* /tmp/blue_update/
 echo "Done! Have a nice day!"
 fi
 fi
