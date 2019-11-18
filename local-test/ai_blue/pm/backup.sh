@@ -26,3 +26,4 @@ if [ "$PACKAGES" == "Y" ] || [ "$PACKAGES" == "y" ] || [ "$PACKAGES" == "" ] ; t
 fi
 echo "Compressing..."
 sudo tar -cvzf ~/_backup.tar.gz ~/_backup/
+echo "Done! Location: ~/_backup.tar.gz"

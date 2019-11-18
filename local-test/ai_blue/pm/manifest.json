@@ -1,0 +1,11 @@
+{
+    "version_name" : "Dolphin [ALPHA]", 
+    "version_denotation" : "1.0.0", 
+    "possible_upcoming_versions" : [
+        "1.0.1", 
+        "1.1.0", 
+        "1.1", 
+        "2.0.0", 
+        "2.0"
+    ]
+}

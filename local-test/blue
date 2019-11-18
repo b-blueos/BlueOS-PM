@@ -4,16 +4,19 @@ case $1 in
     python ai_blue/pm/check.py
     ;;
   -U | upgrade )
-    python ai_blue/pm/upgrade.py
+    python ai_blue/pm/upgrade.py $2
     ;;
   -l | local )
-    ai_blue/pm/local.sh $2
+    python ai_blue/pm/upgrade.py $2
     ;;
   -b | backup )
     ai_blue/pm/backup.sh
     ;;
   -r | restore )
     ai_blue/pm/restore.sh
+    ;;
+  clean )
+    ai_blue/pm/clean.sh
     ;;
 #  -i | install )
 #    ai_blue/pm/install.sh
@@ -35,13 +38,14 @@ case $1 in
     echo "                        And will let you download the update if there is one."
     echo "  upgrade | -U    -->   Update the system, if there is an update."
     echo "  local   | -l    -->   Update the system using a local file."
-    echo "  backup  | -b    -->   System backup. Takes one option: output_directory"
-    echo "  restore | -r    -->   Restore a backup. Takes one option: inout_file"
+    echo "  backup  | -b    -->   System backup."
+    echo "  restore | -r    -->   Restore a backup. Takes one option: input_file"
+    echo "  clean           -->   Clean uneccessary files."
 #    echo "  [! COMING SOON !] install  --> Install a package from the BlueOS repository."
 #    echo "  [! COMING SOON !] update   --> Update a package from the BlueOS repository.
 #               (If no package is specified, all will be updated.)"
 #    echo "  [! COMING SOON !] remove   --> Remove a package that comes from the BlueOS repository."
     echo
-    echo -e "\e[32mUsage: blue [COMMAND] (OPTIONS)"
+    echo -e "\e[31mUsage: blue [COMMAND] (OPTIONS)"
     ;;
 esac; shift;
