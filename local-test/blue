@@ -38,6 +38,7 @@ case $1 in
     echo "                        And will let you download the update if there is one."
     echo "  upgrade | -U    -->   Update the system, if there is an update."
     echo "  local   | -l    -->   Update the system using a local file."
+    echo "                        Takes one argument: /path/to/updatefile.tar.xz"
     echo "  backup  | -b    -->   System backup."
     echo "  restore | -r    -->   Restore a backup. Takes one option: input_file"
     echo "  clean           -->   Clean uneccessary files."
@@ -46,6 +47,6 @@ case $1 in
 #               (If no package is specified, all will be updated.)"
 #    echo "  [! COMING SOON !] remove   --> Remove a package that comes from the BlueOS repository."
     echo
-    echo -e "\e[31mUsage: blue [COMMAND] (OPTIONS)"
+    echo -e "\e[34mUsage: blue [COMMAND] (OPTIONS)"
     ;;
 esac; shift;

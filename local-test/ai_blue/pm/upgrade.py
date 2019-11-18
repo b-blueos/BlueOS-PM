@@ -26,6 +26,7 @@ try:
         if os.path.exists(sys.argv[1]):
             if os.path.isfile(sys.argv[1]):
                 if sys.argv[1].endswith('.tar.xz'):
+                    update_found = True
                     print(f'Moving {sys.argv[1]} to ai_blue/update/update.tar.xz to prepare for update...')
                     os.system(f"mv {sys.argv[1]} ai_blue/update/update.tar.xz")
                 else:
@@ -60,7 +61,14 @@ except:
         i += 1
 
 if update_found == True:
-    print(f'')
+    print(f'Extracting update to: /tmp/blue_update')
+    os.system(f"mkdir /tmp/blue_update && tar -C /tmp/blue_update/ -xf ai_blue/update/update.tar.xz && chmod +x /tmp/blue_update/index.sh")
+    print(f'Starting the update...')
+    os.system(f"bash /tmp/blue_update/index.sh")
+    print(f'Creating new manifest...')
+    os.system(f"cp -av /tmp/blue_update/manifest.json ai_blue/pm/manifest.json")
+    print(f'Cleaning up...')
+    os.system(f"rm -rf ai_blue/update/* /tmp/blue_update/")
 
 print(f"\nDone! Have a great day {os.getenv('USER')}!")
 open('ai_blue/pm/manifest.json', 'w').write(json.dumps(manifest,indent=4, separators=(", ", " : ")))

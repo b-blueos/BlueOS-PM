@@ -3,7 +3,7 @@ import os
 import requests
 
 # Get the Manifest
-manifest = json.loads(open('manifest.json', 'r').read())
+manifest = json.loads(open('ai_blue/pm/manifest.json', 'r').read())
 
 print(f'Current version: {manifest["version_name"]} - {manifest["version_denotation"]}')
 
@@ -27,9 +27,7 @@ for x in manifest["possible_upcoming_versions"]:
         print(f'Do you want to install it? [y/N]')
         download_update = input()
         if download_update == "y" or download_update == "Y":
-            # Update by running: blue upgrade
-            # Maybe followed by a URL which will instantly download from that URL.
-            # Ex: blue upgrade https://blueos.burnyllama.tk/repo/update/update
+            os.system(f"python ai_blue/pm/upgrade.py https://blueos.burnyllama.tk/repo/BlueOS/{x}/update.tar.xz")
         else: 
             print("Okay, not upgrading!")
     else:
@@ -38,3 +36,5 @@ for x in manifest["possible_upcoming_versions"]:
             if i >= len(manifest["possible_upcoming_versions"]):
                 print(f'No updates found...')
     i += 1
+
+open('ai_blue/pm/manifest.json', 'w').write(json.dumps(manifest,indent=4, separators=(", ", " : ")))
